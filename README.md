@@ -4,6 +4,7 @@
 NLTK:
 Resource stopwords not found.
 Please use the NLTK Downloader to obtain the resource:
-+import nltk
+
++ import nltk
 + nltk.download('stopwords')
 + nltk.download('punkt')
