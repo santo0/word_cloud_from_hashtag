@@ -1,0 +1,17 @@
+body, html {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: blue;
+}
+.content {
+    margin: 0 auto;
+    width: 400px;
+}
+.insert {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#content {
+    width: 70%;
+}
