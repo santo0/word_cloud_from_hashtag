@@ -35,7 +35,7 @@ def draw_word_cloud(filtered_text):
     wordcloud = WordCloud(width=2560, height=1440).generate(filtered_text)
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
-    wordcloud.to_file('../fig.png')
+    wordcloud.to_file('temporary_files/fig.png')
 
 
 if __name__ == '__main__':
