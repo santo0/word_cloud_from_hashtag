@@ -7,10 +7,8 @@
 {% block body %}
 <div class = "content">
     <h1 style="text-align: center">Major League Hacking</h1>
-    <h2 style="text-align: center">Hashtag Word Cloud</h2>
-    <p style="text-align: center">
-        Search a hashtag and check the graph of the most used words in tweets that include that hashtag.
-    </p>
+    <h2 class="" style="text-align: center">Hashtag Word Cloud</h2>
+    <img src="{{ image }}">
     <div class="insert">
         <form action="/" method = "POST">
             <span>Insert the hashtags, separated by comas</span>
@@ -18,10 +16,11 @@
             <input type="submit" value = "Search">
         </form>
     </div>
-    <br>
-    <img src="temporary_files/fig.png">
-    
-    
+    <h2 class="sec-title" style="text-align: center">What is this?</h2>
+    <p style="text-align: center">
+        Search hashtags and check the word cloud of the most used words in tweets that include that hashtag.
+    </p>
+
 </div>
 
 {% endblock %}
