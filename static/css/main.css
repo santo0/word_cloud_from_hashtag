@@ -1,0 +1,39 @@
+body, html {
+    margin: 0;
+    margin-top: 2.5%;
+    font-family: monospace;
+    background-color: antiquewhite;
+    font-size:large;
+}
+
+title {
+    font-size: small;
+}
+
+.content {
+    margin: 0 auto;
+    width: 400px;
+}
+.insert {
+    margin-top: 400px;
+    text-align: center;
+}
+.h2 {
+    margin-top: 50px;
+}
+
+.sec-title {
+    clear: both;
+    position: relative;
+    margin-top: 100px;}
+
+#content {
+    width: 70%;
+}
+img {
+    position: fixed;
+    top: 175px;
+    left: 300px;
+    width: 500px;
+    height: 300px;
+}
