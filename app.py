@@ -10,7 +10,10 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         hashtag_name = request.form['hashtag']
-        main.get_tweets(hashtag_name)
+        main.run(hashtag_name)
+        return render_template("search.html")
+        
+
     else:
         return render_template("index.html")
 if __name__ == "__main__":

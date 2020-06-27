@@ -1,22 +1,16 @@
 import GetOldTweets3 as got
-import pandas as pd
+from word_cloud import get_stop_words_by_language, get_filtered_text, draw_word_cloud
+from tweet_fetcher import get_tweets
+import timeit
 
-NUMBER_OF_TWEETS = 10
-
-result_dict = {}
-
-def get_tweets(input_hashtag):
-    input_hashtag = list(input_hashtag.split(","))
-    for i in range(len(input_hashtag)):
-        tweetCriteria = got.manager.TweetCriteria().setQuerySearch(input_hashtag[i]).setMaxTweets(NUMBER_OF_TWEETS)
-        tweet_bodies = []
-        for j in range(NUMBER_OF_TWEETS):
-            tweet = got.manager.TweetManager.getTweets(tweetCriteria)[j]
-            date_time = tweet.date.strftime("%d/%m/%Y, %H:%M:%S")
-            tweet_bodies.append((tweet.text,date_time))
-        result_dict[input_hashtag[i]] = tweet_bodies
-
-    return result_dict
+def run(input_hashtag):
+    tweet_dict = get_tweets([hashtag.strip() for hashtag in input_hashtag.split(",")])
+    full_text = ""
+    for hashtag in tweet_dict:
+        for tweet in tweet_dict[hashtag]:
+            print(tweet)
+            full_text += get_filtered_text(tweet[0], "spanish")
+    draw_word_cloud(full_text)
 
 
 
