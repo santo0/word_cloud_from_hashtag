@@ -11,11 +11,12 @@ title {
 }
 
 .content {
+    position: relative;
     margin: 0 auto;
     width: 400px;
 }
 .insert {
-    margin-top: 400px;
+    margin-top: 450px;
     text-align: center;
 }
 .h2 {
@@ -25,15 +26,16 @@ title {
 .sec-title {
     clear: both;
     position: relative;
-    margin-top: 100px;}
+    margin-top: 70px;}
 
 #content {
     width: 70%;
 }
 img {
-    position: fixed;
-    top: 175px;
-    left: 300px;
-    width: 500px;
-    height: 300px;
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 130%;
+    height: 40%;
+    max-width: 700px;
 }
