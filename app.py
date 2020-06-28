@@ -22,7 +22,7 @@ def index():
 
 def check_if_hashtags_are_valid(hashtags):
     splitted_hashtags = [ht.strip() for ht in hashtags.split(",")]
-    if len(splitted_hashtags == 0):
+    if len(splitted_hashtags) == 0:
         return False
     else:
         for ht in splitted_hashtags:
