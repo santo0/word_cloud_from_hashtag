@@ -4,13 +4,12 @@ from tweet_fetcher import get_tweets
 import timeit
 
 def run(input_hashtag):
-    tweet_dict = get_tweets([hashtag.strip() for hashtag in input_hashtag.split(",")])
+    
+    tweet_dict = get_tweets(input_hashtag)
     full_text = ""
     for hashtag in tweet_dict:
         for tweet in tweet_dict[hashtag]:
             print(tweet)
             full_text += get_filtered_text(tweet[0], "spanish")
     draw_word_cloud(full_text)
-
-
 
