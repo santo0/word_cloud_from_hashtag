@@ -28,7 +28,7 @@ def check_if_hashtags_are_valid(hashtags):
         return False
     else:
         for ht in splitted_hashtags:
-            if ht[0] != '#' or not (0<ht.len<=TWEET_LEN) or ' ' in ht:
+            if not (0 < ht.len <= TWEET_LEN) or ht[0] != '#' or ' ' in ht:
                 return False
         return True
 
