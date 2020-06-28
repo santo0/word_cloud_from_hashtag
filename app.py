@@ -3,6 +3,7 @@ from datetime import datetime
 import os
 import main
 import re
+import sys
 
 IMAGES_FOLDER = os.path.join('static', 'temporary_files')
 TWEET_LEN = 140
@@ -15,8 +16,7 @@ def index():
     if request.method == 'POST':
         hashtag_name = request.form['hashtag']
         splitted_hashtags = [ht.strip() for ht in re.split(", ", hashtag_name)]
-        print(splitted_hashtags)
-        if check_if_hashtags_are_valid(hashtag_name):
+        if check_if_hashtags_are_valid(splitted_hashtags):
             main.run(splitted_hashtags)
             full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'fig.png')
             return render_template("search.html", image = full_filename)
@@ -32,7 +32,6 @@ def check_if_hashtags_are_valid(hashtags):
         for ht in hashtags:
             if not (0 < len(ht) <= TWEET_LEN) or ht[0] != '#':
                 return False
-        
         return True
 
 if __name__ == "__main__":
