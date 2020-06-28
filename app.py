@@ -17,6 +17,8 @@ def index():
             main.run(hashtag_name)
             full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'fig.png')
             return render_template("search.html", image = full_filename)
+        else:
+            return render_template("index.html")
     else:
         return render_template("index.html")
 
