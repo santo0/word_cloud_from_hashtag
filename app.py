@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, Response
 from datetime import datetime
 import os
 import main
@@ -10,6 +10,16 @@ TWEET_LEN = 140
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = IMAGES_FOLDER
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
+# No caching at all for API endpoints.
+@app.after_request
+def add_header(response):
+    # response.cache_control.no_store = True
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -18,7 +28,7 @@ def index():
         splitted_hashtags = [ht.strip() for ht in re.split(", ", hashtag_name)]
         if check_if_hashtags_are_valid(splitted_hashtags):
             main.run(splitted_hashtags)
-            full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'fig.png')
+            full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'fig100.png')
             return render_template("search.html", image = full_filename)
         else:
             return render_template("index.html")

@@ -10,6 +10,6 @@ def run(input_hashtag):
     for hashtag in tweet_dict:
         for tweet in tweet_dict[hashtag]:
             print(tweet)
-            full_text += get_filtered_text(tweet[0], "spanish")
+            full_text += get_filtered_text(tweet[0], "english")
     draw_word_cloud(full_text)
 
