@@ -3,7 +3,7 @@ cssselect==1.1.0
 cycler==0.10.0
 Flask==1.1.2
 GetOldTweets3==0.0.11
-gunicorn==20.0.4
+gunicorn
 itsdangerous==1.1.0
 Jinja2==2.11.2
 joblib==0.15.1
